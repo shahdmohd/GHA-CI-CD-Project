@@ -29,22 +29,7 @@ jobs:
         # Prepare Python on the runner. This does not change the student laptop.
         uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
-
-      # - name: Print Python Version
-      #   run: python --version
-      - name: Get and Save Python Version
-        run: |
-          # 1. Get the version string (e.g., "Python 3.11.5")
-          PY_VER=$(python --version)
-          
-          # 2. Save it to the GitHub Environment file
-          echo "MY_PYTHON_VERSION=$PY_VER" >> $GITHUB_ENV
-
-      - name: Print the Saved Environment Variable
-        run: |
-          # 3. Read it using standard shell syntax or GitHub context
-          echo "The saved version is: ${{ secrets.PY_VER }}"
+          python-version: ${{secrets.PY_VER}}
 
 
       - name: Check current time
