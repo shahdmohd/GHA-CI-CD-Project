@@ -37,7 +37,7 @@ jobs:
         # Prepare Python on the runner. This does not change the student laptop.
         uses: actions/setup-python@v6
         with:
-          python-version: ${{ matrix.PY_VERsion }}
+          python-version: ${{ matrix.python-version }}
 
       # - name: Print Python Version
       #   run: python --version
