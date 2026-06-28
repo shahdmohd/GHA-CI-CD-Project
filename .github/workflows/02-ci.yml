@@ -97,7 +97,7 @@ jobs:
       - name: Run tests
         # This is the key verification step in the CI workflow.
         run: python -m unittest discover -s tests -v
-build-artifact:
+  build-artifact:
     name: Build Docker Artifact
     runs-on: ubuntu-latest
     needs: run-tests
