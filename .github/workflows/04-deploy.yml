@@ -11,6 +11,12 @@ on:
     workflows: ["02 CI Workflow"]
     # Start when the build workflow has completed.
     types: [completed]
+  ## When the main is merged into -> trigger 
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
 
 env:
   IMAGE_NAME: tiny-health-app
