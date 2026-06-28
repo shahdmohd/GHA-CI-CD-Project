@@ -61,7 +61,8 @@ jobs:
       - name: Print the Saved Environment Variable
         run: |
           # 3. Read it using standard shell syntax or GitHub context
-          echo "The saved version is: ${{ secrets.PY_VER }}"
+          # echo "The saved version is: ${{ secrets.PY_VER }}"
+          echo "The saved version is: $MY_PYTHON_VERSION"
 
       - name: Install Ruff
         run: |
@@ -82,7 +83,7 @@ jobs:
           severity: CRITICAL,HIGH
 
       - name: Run Trivy Dockerfile Scan
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: 'config'
           scan-ref: 'Dockerfile' # Path to your Dockerfile
