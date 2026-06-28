@@ -6,17 +6,21 @@
 name: 04 Deploy Workflow
 
 on:
-  workflow_run:
-    # Listen for the build workflow by name.
-    workflows: ["02 CI Workflow"]
-    # Start when the build workflow has completed.
-    types: [completed]
+  # workflow_run:
+  #   # Listen for the build workflow by name.
+  #   # Start when the build workflow has completed.
+  #   types: [completed]
   ## When the main is merged into -> trigger 
   pull_request:
     types:
       - closed
     branches:
       - main
+
+
+  # workflows: ["02 CI Workflow"]
+  workflows: 
+
 
 env:
   IMAGE_NAME: tiny-health-app
