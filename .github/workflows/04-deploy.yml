@@ -1,5 +1,8 @@
 # This workflow completes the story by delivering the saved package.
 # It starts after the build workflow finishes successfully.
+
+
+#### This pipeline will be triggered when we start the 02 CI Workflow --> CI.yml file 
 name: 04 Deploy Workflow
 
 on:
