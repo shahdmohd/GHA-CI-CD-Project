@@ -125,8 +125,19 @@ jobs:
             -t "${IMAGE_NAME}:${{ steps.image-tag.outputs.image_tag }}" \
             .
 
+      - name: Run Trivy Image Scan
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: "${{ env.IMAGE_NAME }}:${{ steps.image-tag.outputs.image_tag }}"
+          format: table
+          exit-code: "1"
+          ignore-unfixed: true
+          vuln-type: "os,library"
+          severity: "HIGH,CRITICAL"
+
       - name: Save Docker image as artifact file
         run: docker save "${IMAGE_NAME}:${{ steps.image-tag.outputs.image_tag }}" -o "${IMAGE_TAR}"
+
 
       - name: Save image metadata
         run: |
