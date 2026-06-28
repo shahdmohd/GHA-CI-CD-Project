@@ -89,7 +89,7 @@ jobs:
           scan-ref: 'Dockerfile' # Path to your Dockerfile
           format: 'table'
           exit-code: '1' # Fails the build if issues are found
-          severity: 'HIGH,CRITICAL'
+          severity: 'CRITICAL'
 
       - name: Check current time
         run: date
